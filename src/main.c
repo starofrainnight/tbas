@@ -1,6 +1,7 @@
 #include "main.h"
 #include <string.h>
 #include "common.h"
+#include "interpreter.h"
 #include "syntax-parser.h"
 
 enum CompilerError {
@@ -28,6 +29,7 @@ void show_help() {
 }
 
 int main(int argc, char *argv[]) {
+  // Store the program in the global variable for later using
   s_app_name = argv[0];
 
   --argc, ++argv;  // Skip over program name
@@ -51,9 +53,12 @@ int main(int argc, char *argv[]) {
     yyparse();
   } while (!feof(yyin));
 
-  // AST is ready inside the g_an_program
+  // AST root variable `g_an_program` already prepared by yyparse()
 
-  // TODO Directly execute the program (without generate code from it)
+  // Directly execute the program (without generate code from it)
+  interp_t interp = interp_new();
+  interp_run(interp, g_an_program);
+  interp_del(&interp);
 
   return CE_OK;
 }
