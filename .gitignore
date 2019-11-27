@@ -1,0 +1,22 @@
+
+# Bison/Yacc generated files
+src/*.tab.*
+src/*.tab.*
+src/*.yy.*
+src/tbas
+src/syntax-parser.*
+src/lexical-scanner.*
+
+# CMake generated files
+Makefile
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles
+
+# Ignore VSCode's file
+.vscode
+
+# Ignore version control files
+.svn
+.git
+CVS
