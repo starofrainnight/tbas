@@ -19,6 +19,10 @@ typedef struct list_impl_t *list_t;
  */
 typedef void (*list_data_deleter_t)(void *data);
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Create the list struct
  */
@@ -48,5 +52,9 @@ list_node_t list_append(list_t self, void *data);
  * Get the element count of list
  */
 int list_count(list_t self);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
