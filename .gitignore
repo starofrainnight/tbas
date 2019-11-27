@@ -12,6 +12,7 @@ Makefile
 CMakeCache.txt
 cmake_install.cmake
 CMakeFiles
+build/
 
 # Ignore VSCode's file
 .vscode
